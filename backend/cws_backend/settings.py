@@ -90,7 +90,7 @@ CORS_ALLOWED_ORIGINS = [
     ).split(",") if origin
 ]
 CORS_ALLOW_ALL_ORIGINS = DEBUG
-CORS_ALLOW_METHODS = ["GET", "OPTIONS"]
+CORS_ALLOW_METHODS = ["GET", "POST", "OPTIONS"]
 CORS_URLS_REGEX = r"^/api/.*$"
 
 LOGGING = {
@@ -99,6 +99,9 @@ LOGGING = {
     "handlers": {"console": {"class": "logging.StreamHandler"}},
     "loggers": {"recommender": {"handlers": ["console"], "level": "INFO"}},
 }
+
+# Retrain the SVD model in the background after this many trusted like changes (0 = never).
+RECOMMENDER_RETRAIN_EVERY = int(os.environ.get("RECOMMENDER_RETRAIN_EVERY", "5"))
 
 # Directory holding the MovieLens CSV files (movies.csv, ratings.csv).
 MOVIELENS_DATA_DIR = BASE_DIR / "recommender" / "data"
