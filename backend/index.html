@@ -1,0 +1,67 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CineMatch</title>
+  <link rel="stylesheet" href="{% static 'movies/css/style.css' %}">
+</head>
+
+<body data-api-url="{% url 'movies:recommendations' %}">
+
+  <!-- ===== NAV ===== -->
+  <nav class="navbar" id="navbar">
+    <a class="navbar__logo" href="{% url 'movies:index' %}">CINEMATCH</a>
+
+    <form class="navbar__user" id="user-form" autocomplete="off">
+      <label for="user-id-input" class="visually-hidden">User ID</label>
+      <input id="user-id-input" class="navbar__input" type="number" min="1" placeholder="User ID">
+      <button class="navbar__btn" type="submit">Load</button>
+    </form>
+  </nav>
+
+  <!-- ===== HERO BANNER (filled by app.js) ===== -->
+  <header class="hero hero--no-image" id="hero">
+    <div class="hero__content">
+      <h1 class="hero__title" id="hero-title"></h1>
+      <p class="hero__genres" id="hero-genres"></p>
+      <p class="hero__overview" id="hero-overview"></p>
+      <a class="hero__btn" id="hero-link" href="#" target="_blank" rel="noopener" hidden>More on IMDb</a>
+    </div>
+  </header>
+
+  <p class="status" id="status" role="status">Loading recommendations…</p>
+
+  <!-- ===== MOVIE ROWS: empty containers, app.js fills the .row__posters divs ===== -->
+  <main class="rows" id="rows">
+
+    <section class="row" data-row-id="top_picks" hidden>
+      <h2 class="row__title"></h2>
+      <div class="row__viewport"><div class="row__posters"></div></div>
+    </section>
+
+    <section class="row" data-row-id="because" hidden>
+      <h2 class="row__title"></h2>
+      <div class="row__viewport"><div class="row__posters"></div></div>
+    </section>
+
+    <section class="row" data-row-id="genre_1" hidden>
+      <h2 class="row__title"></h2>
+      <div class="row__viewport"><div class="row__posters"></div></div>
+    </section>
+
+    <section class="row" data-row-id="genre_2" hidden>
+      <h2 class="row__title"></h2>
+      <div class="row__viewport"><div class="row__posters"></div></div>
+    </section>
+
+    <section class="row" data-row-id="genre_3" hidden>
+      <h2 class="row__title"></h2>
+      <div class="row__viewport"><div class="row__posters"></div></div>
+    </section>
+
+  </main>
+
+  <script src="{% static 'movies/js/app.js' %}"></script>
+</body>
+</html>

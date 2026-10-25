@@ -1,0 +1,63 @@
+# ==========================================================================
+# Movify - .gitignore
+# ==========================================================================
+
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ---------- Virtual environments ----------
+venv/
+.venv/
+env/
+ENV/
+
+# ---------- Environment variables / secrets ----------
+.env
+.env.*
+!.env.example
+
+# ---------- Django ----------
+# Local SQLite database: recreate with `migrate` + `load_movielens`.
+db.sqlite3
+db.sqlite3-journal
+*.log
+media/
+staticfiles/
+
+# ---------- MovieLens dataset ----------
+# The MovieLens licence forbids redistribution, so the CSVs are not committed.
+# Download ml-latest-small from https://grouplens.org/datasets/movielens/latest/
+backend/recommender/data/*
+!backend/recommender/data/.gitkeep
+cwsdataset/
+ml-latest-small/
+ml-latest-small.zip
+
+# ---------- Trained model artifacts ----------
+*.pkl
+*.pickle
+*.joblib
+
+# ---------- Editors / IDEs ----------
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*~
+
+# ---------- OS files ----------
+.DS_Store
+Thumbs.db
+desktop.ini

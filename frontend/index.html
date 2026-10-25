@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Movify - a Netflix-style hybrid movie recommender built on MovieLens.">
+    <title>Movify | Movie Recommendations</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="navbar" id="navbar">
+        <a class="brand" href="./" aria-label="Movify home">MOVIFY</a>
+
+        <nav class="nav-links" aria-label="Sections">
+            <a href="#row-recommendations">For You</a>
+            <a href="#row-similar">More Like This</a>
+            <a href="#row-top-rated">Top Rated</a>
+        </nav>
+
+        <div class="nav-tools">
+            <div class="search" id="search">
+                <label class="visually-hidden" for="search-input">Search movies</label>
+                <span class="search-icon" aria-hidden="true">&#9906;</span>
+                <input type="search" id="search-input" placeholder="Search titles" autocomplete="off"
+                       aria-controls="search-results" aria-expanded="false">
+                <ul class="search-results" id="search-results" role="listbox" hidden></ul>
+            </div>
+
+            <form class="user-form" id="user-form" novalidate>
+                <label for="user-input">User</label>
+                <input type="number" id="user-input" min="1" step="1" value="1" inputmode="numeric">
+                <button type="submit" class="btn btn-small">Switch</button>
+            </form>
+        </div>
+    </header>
+
+    <div class="status-banner" id="status-banner" role="alert" hidden></div>
+
+    <main>
+        <section class="hero" id="hero" aria-live="polite">
+            <div class="hero-art" id="hero-art">
+                <span class="hero-initial" id="hero-initial" aria-hidden="true"></span>
+            </div>
+            <div class="hero-fade"></div>
+
+            <div class="hero-content">
+                <p class="hero-eyebrow" id="hero-eyebrow">Featured</p>
+                <h1 class="hero-title" id="hero-title">Loading&hellip;</h1>
+                <p class="hero-meta" id="hero-meta"></p>
+                <p class="hero-description" id="hero-description"></p>
+                <div class="hero-actions">
+                    <button type="button" class="btn btn-primary" id="hero-picks">&#9654; Show My Picks</button>
+                    <button type="button" class="btn btn-secondary" id="hero-similar">&#9432; More Like This</button>
+                </div>
+            </div>
+        </section>
+
+        <div class="rows" id="rows"></div>
+    </main>
+
+    <footer class="footer">
+        <p>Hybrid recommendations: TF-IDF content similarity + SVD collaborative filtering, with shilling-attack defense.</p>
+        <p>Data: MovieLens ml-latest-small &copy; GroupLens Research.</p>
+    </footer>
+</body>
+</html>

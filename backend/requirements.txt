@@ -1,0 +1,14 @@
+# CWS movie recommender - backend dependencies (Python 3.11+)
+# Install with:  pip install -r requirements.txt
+
+# Web framework + CORS for the separate vanilla frontend
+Django==5.2.18
+django-cors-headers==4.9.0
+
+# Data handling
+numpy==2.4.6
+pandas==3.0.6
+
+# Machine learning
+scikit-learn==1.9.1      # TF-IDF + cosine similarity (content engine)
+scikit-surprise==1.1.5   # SVD matrix factorisation (collaborative engine)
